@@ -58,11 +58,37 @@ function engineerQuery() {
         {
             type: "input",
             name: "github",
-            message: "Engineer's GitHub URL?"
+            message: "What is the URL of the Engineer's GitHub profile?"
         }
     ]);
 };
-engineerQuery();
+
+function internQuery() {
+    inquirer.prompt([{
+            type: "input",
+            name: "name",
+            message: "Intern's name?"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Intern's ID number:"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Intern's email address:"
+        },
+        {
+            type: "input",
+            name: "school",
+            message: "What school does/did the intern attend?"
+        }
+    ]);
+};
+// engineerQuery();
+
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
