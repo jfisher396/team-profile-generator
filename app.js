@@ -9,9 +9,12 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const Employee = require("./lib/Employee");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+let managerArr = [];
+
 function managerQuery() {
     inquirer.prompt([{
                 type: "input",
@@ -31,10 +34,12 @@ function managerQuery() {
             {
                 type: "input",
                 name: "officeNumber",
-                message: "Team Manager's office number?"
+                message: "Team Manager's office number:"
             }
         ])
         .then(answers => {
+            // console.log(answers)
+            managerArr.push(answers.name)
             // Use user feedback for... whatever!!
         })
         .catch(error => {
@@ -44,78 +49,87 @@ function managerQuery() {
                 // Something else when wrong
             }
         });
-
+        console.log(managerArr)
 };
+managerQuery()
 
-function engineerQuery() {
-    inquirer.prompt([{
-                type: "input",
-                name: "name",
-                message: "Engineer's name?"
-            },
-            {
-                type: "input",
-                name: "id",
-                message: "Engineer's ID number:"
-            },
-            {
-                type: "input",
-                name: "email",
-                message: "Engineer's email address:"
-            },
-            {
-                type: "input",
-                name: "github",
-                message: "What is the URL of the Engineer's GitHub profile?"
-            }
-        ])
-        .then(answers => {
-            // Use user feedback for... whatever!!
-        })
-        .catch(error => {
-            if (error.isTtyError) {
-                // Prompt couldn't be rendered in the current environment
-            } else {
-                // Something else when wrong
-            }
-        });
-};
+// function engineerQuery() {
+//     inquirer.prompt([{
+//                 type: "input",
+//                 name: "name",
+//                 message: "Engineer's name?"
+//             },
+//             {
+//                 type: "input",
+//                 name: "id",
+//                 message: "Engineer's ID number:"
+//             },
+//             {
+//                 type: "input",
+//                 name: "email",
+//                 message: "Engineer's email address:"
+//             },
+//             {
+//                 type: "input",
+//                 name: "github",
+//                 message: "What is the URL of the Engineer's GitHub profile?"
+//             }
+//         ])
+//         .then(answers => {
+//             // Use user feedback for... whatever!!
+//         })
+//         .catch(error => {
+//             if (error.isTtyError) {
+//                 // Prompt couldn't be rendered in the current environment
+//             } else {
+//                 // Something else when wrong
+//             }
+//         });
+// };
 
-function internQuery() {
-    inquirer.prompt([{
-            type: "input",
-            name: "name",
-            message: "Intern's name?"
-        },
-        {
-            type: "input",
-            name: "id",
-            message: "Intern's ID number:"
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "Intern's email address:"
-        },
-        {
-            type: "input",
-            name: "school",
-            message: "What school does/did the intern attend?"
-        }
-    ])
-    .then(answers => {
-            // Use user feedback for... whatever!!
-        })
-        .catch(error => {
-            if (error.isTtyError) {
-                // Prompt couldn't be rendered in the current environment
-            } else {
-                // Something else when wrong
-            }
-        });
-};
+// function internQuery(answers) {
+//     inquirer.prompt([{
+//             type: "input",
+//             name: "name",
+//             message: "Intern's name?"
+//         },
+//         {
+//             type: "input",
+//             name: "id",
+//             message: "Intern's ID number:"
+//         },
+//         {
+//             type: "input",
+//             name: "email",
+//             message: "Intern's email address:"
+//         },
+//         {
+//             type: "input",
+//             name: "school",
+//             message: "What school does/did the intern attend?"
+//         }
+//     ])
+//     .then(answers => {
+//         console.log(answers)
+//             // Use user feedback for... whatever!!
+//         })
+//         .catch(error => {
+//             if (error.isTtyError) {
+//                 // Prompt couldn't be rendered in the current environment
+//             } else {
+//                 // Something else when wrong
+//             }
+//         });
+// };
+
+// const employee1 = new Manager("Dave", "666", "dave@company.com", "123-456-7890");
+// const employee2 = new Engineer("Lucy", "123", "lucy@company.com", "lucy123");
+// const employee3 = new Intern("Dan", "425", "dan@company.com", "UW");
 
 
+// console.log(employee1)
+// console.log(employee2)
+// console.log(employee3)
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -127,9 +141,6 @@ function internQuery() {
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
 
 // HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
 // and Intern classes should all extend from a class named Employee; see the directions
