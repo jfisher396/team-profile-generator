@@ -37,7 +37,32 @@ function managerQuery() {
     ]);
 };
 
-managerQuery()
+// managerQuery()
+
+function engineerQuery() {
+    inquirer.prompt([{
+            type: "input",
+            name: "name",
+            message: "Engineer's name?"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Engineer's ID number:"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Engineer's email address:"
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "Engineer's GitHub URL?"
+        }
+    ]);
+};
+engineerQuery();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
