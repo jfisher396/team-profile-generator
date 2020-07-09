@@ -13,54 +13,72 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 function managerQuery() {
-    inquirer.prompt([
-        {
-            type: "input",
-            name: "name",
-            message: "What is the name of the team manager?"
-        },
-        {
-            type: "input",
-            name: "id",
-            message: "Team Manager's ID number:"
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "Team Manager's email address:"
-        },
-        {
-            type: "input",
-            name: "officeNumber",
-            message: "Team Manager's office number?"
-        }
-    ]);
-};
+    inquirer.prompt([{
+                type: "input",
+                name: "name",
+                message: "What is the name of the team manager?"
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "Team Manager's ID number:"
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "Team Manager's email address:"
+            },
+            {
+                type: "input",
+                name: "officeNumber",
+                message: "Team Manager's office number?"
+            }
+        ])
+        .then(answers => {
+            // Use user feedback for... whatever!!
+        })
+        .catch(error => {
+            if (error.isTtyError) {
+                // Prompt couldn't be rendered in the current environment
+            } else {
+                // Something else when wrong
+            }
+        });
 
-// managerQuery()
+};
 
 function engineerQuery() {
     inquirer.prompt([{
-            type: "input",
-            name: "name",
-            message: "Engineer's name?"
-        },
-        {
-            type: "input",
-            name: "id",
-            message: "Engineer's ID number:"
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "Engineer's email address:"
-        },
-        {
-            type: "input",
-            name: "github",
-            message: "What is the URL of the Engineer's GitHub profile?"
-        }
-    ]);
+                type: "input",
+                name: "name",
+                message: "Engineer's name?"
+            },
+            {
+                type: "input",
+                name: "id",
+                message: "Engineer's ID number:"
+            },
+            {
+                type: "input",
+                name: "email",
+                message: "Engineer's email address:"
+            },
+            {
+                type: "input",
+                name: "github",
+                message: "What is the URL of the Engineer's GitHub profile?"
+            }
+        ])
+        .then(answers => {
+            // Use user feedback for... whatever!!
+        })
+        .catch(error => {
+            if (error.isTtyError) {
+                // Prompt couldn't be rendered in the current environment
+            } else {
+                // Something else when wrong
+            }
+        });
 };
 
 function internQuery() {
@@ -84,9 +102,19 @@ function internQuery() {
             name: "school",
             message: "What school does/did the intern attend?"
         }
-    ]);
+    ])
+    .then(answers => {
+            // Use user feedback for... whatever!!
+        })
+        .catch(error => {
+            if (error.isTtyError) {
+                // Prompt couldn't be rendered in the current environment
+            } else {
+                // Something else when wrong
+            }
+        });
 };
-// engineerQuery();
+
 
 
 // After the user has input all employees desired, call the `render` function (required
