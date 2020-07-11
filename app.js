@@ -10,125 +10,97 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 const Employee = require("./lib/Employee");
-const { createInflate } = require("zlib");
+const {
+    createInflate
+} = require("zlib");
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
-class Team {
-    constructor() {
-        this.teamSize = 0;
-        this.team = [];
-    }
-}
+// Code to use inquirer to gather information about the development team members,
+// and to create objects for each team member.
 const teamMembers = [];
 
 function start() {
     managerQuery();
-    // addTeamMember();
-
 }
-console.log(teamMembers);
 
 function managerQuery() {
     inquirer.prompt([{
-                type: "input",
-                name: "name",
-                message: "What is the name of the team manager?"
-            },
-            {
-                type: "input",
-                name: "id",
-                message: "Team Manager's ID number:"
-            },
-            {
-                type: "input",
-                name: "email",
-                message: "Team Manager's email address:"
-            },
-            {
-                type: "input",
-                name: "officeNumber",
-                message: "Team Manager's office number:"
-            }
-        ]).then(val => {
-            const manager = new Manager(val.name, val.id, val.email, val.officeNumber);
-            console.log(manager);
-            teamMembers.push(manager);
-            console.log(teamMembers);
-            addTeamMember();
-        })
-        .catch(error => {
-            if (error.isTtyError) {
-                // Prompt couldn't be rendered in the current environment
-            } else {
-                // Something else when wrong
-            }
-        });
-    
+            type: "input",
+            name: "name",
+            message: "What is the name of the team manager?"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Team Manager's ID number:"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Team Manager's email address:"
+        },
+        {
+            type: "input",
+            name: "officeNumber",
+            message: "Team Manager's office number:"
+        }
+    ]).then(val => {
+        const manager = new Manager(val.name, val.id, val.email, val.officeNumber);
+        console.log(manager);
+        teamMembers.push(manager);
+        console.log(teamMembers);
+        addTeamMember();
+    })
 };
 
 function addTeamMember() {
     inquirer.prompt([{
-        type: "prompt",
-        name: "add team member",
-        message: "Would you like to add a team member?"
-    },
-    {
         type: "list",
         name: "what_type",
-        message: "Add engineer or intern?",
+        message: "Add an engineer or intern to the team?",
         choices: ["Engineer", "Intern", "Not at this time"]
-    }
-    ]).then(val => {
-        switch (val.what_type) {
-            case "Engineer": 
-                engineerQuery()
-                break;
-            case "Intern":
-            internQuery()
-            default:
-                createFile()
-                break;
+    }]).then(val => {
+
+        if (val.what_type === "Engineer") {
+            engineerQuery();
+        } else if (val.what_type === "Intern") {
+            internQuery();
+        } else {
+            createFile();
         }
-    }) 
+
+    })
 }
 
 
 function engineerQuery() {
     inquirer.prompt([{
-                type: "input",
-                name: "name",
-                message: "Engineer's name?"
-            },
-            {
-                type: "input",
-                name: "id",
-                message: "Engineer's ID number:"
-            },
-            {
-                type: "input",
-                name: "email",
-                message: "Engineer's email address:"
-            },
-            {
-                type: "input",
-                name: "github",
-                message: "What is the URL of the Engineer's GitHub profile?"
-            }
-        ]).then(val => {
-                const engineer = new Engineeer(val.name, val.id, val.email, val.officeNumber);
-                console.log(engineer);
-                teamMembers.push(engineer);
-                addTeamMember();
-            })
-            .catch(error => {
-                if (error.isTtyError) {
-                    // Prompt couldn't be rendered in the current environment
-                } else {
-                    // Something else when wrong
-                }
-            });
-        
+            type: "input",
+            name: "name",
+            message: "Engineer's name?"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Engineer's ID number:"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Engineer's email address:"
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "What is the URL of the Engineer's GitHub profile?"
+        }
+    ]).then(val => {
+        const engineer = new Engineer(val.name, val.id, val.email, val.officeNumber);
+        console.log(engineer);
+        teamMembers.push(engineer);
+        addTeamMember();
+    })
+
+
 };
 
 function internQuery() {
@@ -153,18 +125,14 @@ function internQuery() {
             message: "What school does/did the intern attend?"
         }
     ]).then(val => {
-            const manager = new Manager(val.name, val.id, val.email, val.officeNumber);
-            console.log(manager);
-        })
-        .catch(error => {
-            if (error.isTtyError) {
-                // Prompt couldn't be rendered in the current environment
-            } else {
-                // Something else when wrong
-            }
-        });
-    
+        const intern = new Intern(val.name, val.id, val.email, val.officeNumber);
+        teamMembers.push(intern);
+        addTeamMember();
+    })
+
+
 };
+
 function createFile() {
     if (!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
