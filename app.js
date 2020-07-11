@@ -45,9 +45,7 @@ function managerQuery() {
         }
     ]).then(val => {
         const manager = new Manager(val.name, val.id, val.email, val.officeNumber);
-        console.log(manager);
         teamMembers.push(manager);
-        console.log(teamMembers);
         addTeamMember();
     })
 };
@@ -67,7 +65,6 @@ function addTeamMember() {
         } else {
             createFile();
         }
-
     })
 }
 
@@ -94,7 +91,7 @@ function engineerQuery() {
             message: "What is the URL of the Engineer's GitHub profile?"
         }
     ]).then(val => {
-        const engineer = new Engineer(val.name, val.id, val.email, val.officeNumber);
+        const engineer = new Engineer(val.name, val.id, val.email, val.github);
         console.log(engineer);
         teamMembers.push(engineer);
         addTeamMember();
@@ -125,7 +122,7 @@ function internQuery() {
             message: "What school does/did the intern attend?"
         }
     ]).then(val => {
-        const intern = new Intern(val.name, val.id, val.email, val.officeNumber);
+        const intern = new Intern(val.name, val.id, val.email, val.school);
         teamMembers.push(intern);
         addTeamMember();
     })
