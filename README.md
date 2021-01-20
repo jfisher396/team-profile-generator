@@ -1,62 +1,78 @@
+# Team Profile Generator
 
-  
-  # Project Title:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
-  Team Profile Generator
 
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-  
----
+## Contents
 
-  ## Description:
+1. [About](#about)
+    1. [User Story](#user%20story)
+    2. [Visuals](#visuals)
+2. [Installation](#installation)
+3. [Credits](#credits)
+4. [License](#license)
+5. [Contributing](#contributing)
+6. [Tests](#Tests)
+7. [Questions](#Contact-Information)
 
-  A software engineering team generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns.
+### About
 
- ![GitHub Logo](/media/Team%20generator%20screenshot.png)
+A software engineering team-generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. Then an html page is created that can be easily viewed in a web browser.
 
-  ---
+### User Story
 
-  ## Table of Contents:
-  *[Installation](#Installation) 
-  *[Usage](#Usage)
-  *[License](#License)
-  *[Contributing](#Contribution)
-  *[Tests](#Tests) 
-  *[Questions](#Contact-Information)
+    As a manager
+    I want to generate a webpage that displays my team's basic info
+    so that I have quick access to emails and GitHub profiles.
 
----
 
-  ## Installation:
 
-  Clone repository from Github at https://github.com/jfisher396/team-profile-generator. NPM init and install dependencies.
 
----
+### Visuals:
 
-  ## Usage:
 
-  To create a quick reference of current project team member and their contact information.
+![Screenshot of load page](/media/team-profile-generator-1.png)
+![Screenshot of load page](/media/team-profile-generator-2.png)
 
----
+## Installation
 
-  ## License
-  License used for this project - MIT
-    * For more information on license types, please reference this website
-  for additional licensing information - [https: //choosealicense.com/](https://choosealicense.com/).
+To clone the repo:
+```
+git clone git@github.com:jfisher396/team-profile-generator.git
+``` 
+Run 'npm install' to install dependencies
 
----
+Run 'node app.js' to run program
 
-  ## Contributing:
+Open the 'team.html' file from the output folder in a web browser to view
 
-  Clone repository, make changes and make a pull request.
+## Credits
 
----
+[James Fisher](https://github.com/jfisher396)
 
-  ## Tests:
-  Jest
+## License
 
----
+Built by [James Fisher](https://james-fisher-web-developer.herokuapp.com/).
+This application is released under [MIT](assets/LICENSE.txt) license.
 
-  ## Contact Information:
+## Contributing
+
+To contribute to this application, create a pull request.
+Here are the steps needed for doing that:
+- Fork the repo
+- Create a feature branch (git checkout -b NAME-HERE)
+- Commit your new feature (git commit -m 'Add some feature')
+- Push your branch (git push)
+- Create a new Pull Request
+
+Following a code review, your feature will be merged.
+
+## Tests:
+
+    npm run test
+
+## Contact Information:
     *GitHub Username: jfisher396
     *GitHub Email: jfisher396@hotmail.com
-  
+
+=======
