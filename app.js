@@ -97,7 +97,7 @@ function engineerQuery() {
       {
         type: "input",
         name: "github",
-        message: "What is the URL of the Engineer's GitHub profile?",
+        message: "What is the Engineer's GitHub Username?",
       },
     ])
     .then((val) => {
