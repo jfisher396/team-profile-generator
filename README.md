@@ -15,7 +15,7 @@
 6. [Tests](#Tests)
 7. [Questions](#Contact-Information)
 
-### About
+## About
 
 A software engineering team-generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. Then an html page is created that can be easily viewed in a web browser.
 
@@ -28,7 +28,7 @@ A software engineering team-generator command line application. The application 
 
 
 
-### Visuals:
+## Visuals:
 
 
 ![Screenshot of load page](/media/team-profile-generator-1.png)
@@ -72,7 +72,7 @@ Following a code review, your feature will be merged.
     npm run test
 
 ## Contact Information:
-    *GitHub Username: jfisher396
-    *GitHub Email: jfisher396@hotmail.com
+* GitHub Username: [jfisher396](https://github.com/jfisher396)
+* GitHub Email: james@james-fisher-web-developer.com
 
 =======
