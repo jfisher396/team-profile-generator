@@ -143,8 +143,12 @@ function internQuery() {
 function createFile() {
   if (!fs.existsSync(OUTPUT_DIR)) {
     fs.mkdirSync(OUTPUT_DIR);
+  } else {
+
+    fs.writeFileSync(outputPath, render(teamMembers), "UTF-8");
+    console.log("File created in the output folder");
   }
-  fs.writeFileSync(outputPath, render(teamMembers), "UTF-8");
+  
 }
 
 start();

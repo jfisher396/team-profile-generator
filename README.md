@@ -74,5 +74,3 @@ Following a code review, your feature will be merged.
 ## Contact Information:
 * GitHub Username: [jfisher396](https://github.com/jfisher396)
 * GitHub Email: james@james-fisher-web-developer.com
-
-=======
