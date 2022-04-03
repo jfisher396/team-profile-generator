@@ -49,7 +49,7 @@ function managerQuery() {
         val.email,
         val.officeNumber
       );
-      console.log(manager);
+      console.table(manager);
       teamMembers.push(manager);
       addTeamMember();
     });
@@ -102,7 +102,7 @@ function engineerQuery() {
     ])
     .then((val) => {
       const engineer = new Engineer(val.name, val.id, val.email, val.github);
-      console.log(engineer);
+      console.table(engineer);
       teamMembers.push(engineer);
       addTeamMember();
     });
@@ -134,6 +134,7 @@ function internQuery() {
     ])
     .then((val) => {
       const intern = new Intern(val.name, val.id, val.email, val.school);
+      console.table(intern)
       teamMembers.push(intern);
       addTeamMember();
     });
